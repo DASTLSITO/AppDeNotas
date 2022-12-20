@@ -43,15 +43,18 @@ const leerTareas = () => {
             mostrarAside(cursor.result.value, cursor.result.key);
             cursor.result.continue();
         }else{
-            const contenedorGithub = d.createElement("a");
-            const github = d.createElement("i");
+            const contenedorGithub = d.createElement("div");
+            const github = d.createElement("a");
+            const githubLogo = d.createElement("i");
 
-            contenedorGithub.setAttribute("target","_BLANK");
+            github.setAttribute("target","_BLANK");
             contenedorGithub.classList.add("githubAside");
+            github.setAttribute("href", "https://github.com/DASTLSITO");
+            githubLogo.classList.add("fab");
+            githubLogo.classList.add("fa-github");
+
+            github.appendChild(githubLogo);
             contenedorGithub.appendChild(github);
-            github.setAttribute("href","https://github.com/DASTLSITO");
-            github.classList.add("fab");
-            github.classList.add("fa-github");
 
             contenedorTareasAside.appendChild(contenedorGithub);
         }
