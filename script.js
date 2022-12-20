@@ -5,11 +5,12 @@ const textoTemporal = d.querySelector(".textoTemporal");
 const contenedorTareasAside = d.querySelector(".contenedor-tareas");
 const contenedorTareas = d.querySelector(".contenedor-tarea__texto");
 const botonAñadirTarea = d.querySelector(".añadir");
-
+const barras = d.querySelector(".bars");
 const IDBRequest = indexedDB.open("tareas", 1);
+const aside = d.querySelector(".aside");
 
-d.querySelector(".bars").addEventListener("click", ()=>{
-    d.querySelector(".aside").classList.toggle("asideVisible");
+barras.addEventListener("click", ()=>{
+    aside.classList.toggle("asideVisible");
 });
 
 IDBRequest.addEventListener("upgradeneeded", ()=>{
@@ -78,7 +79,7 @@ const getIDBData = (modo, mensaje) => {
 }
 
 const añadirTarea = () => {
-
+    !(aside.classList.contains("asideVisible")) && aside.classList.toggle("asideVisible");
     añadirTareaDB({titulo: 'Tarea', descripcion: 'Descripción', texto: 'Texto de la nota'});
     leerTareas();
 }
@@ -166,7 +167,7 @@ const mostrarAside = (tarea, key) => {
 
     contenedorTareaAside.addEventListener("click", ()=>{
         if(screen.width <= 600){
-            d.querySelector(".aside").classList.toggle("asideVisible");
+            aside.classList.toggle("asideVisible");
         }
         mostrarTexto(tarea, key);
     });
