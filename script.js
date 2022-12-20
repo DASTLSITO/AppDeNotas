@@ -30,7 +30,6 @@ IDBRequest.addEventListener("error", ()=>{
 
 const añadirTareaDB = objeto => {
     const IDBData = getIDBData("readwrite", "Objeto añadido correctamente");
-    mostrarTexto(objeto);
     IDBData.add(objeto);
 }
 
@@ -46,7 +45,6 @@ const leerTareas = () => {
             const contenedorGithub = d.createElement("a");
             const github = d.createElement("i");
 
-            contenedorGithub.setAttribute("title","Ir a mi github :)");
             contenedorGithub.setAttribute("target","_BLANK");
             contenedorGithub.classList.add("githubAside");
             contenedorGithub.appendChild(github);
